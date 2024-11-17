@@ -35,3 +35,5 @@ set.cursorline = true
 set.tabstop = 2
 set.shiftwidth = 2
 set.expandtab = true
+
+set.list = true -- Show some invisible characters
