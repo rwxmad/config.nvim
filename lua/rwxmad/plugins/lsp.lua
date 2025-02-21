@@ -178,6 +178,7 @@ return {
           },
         },
         bashls = {},
+        marksman = {},
       }
 
       local options = {
@@ -250,6 +251,7 @@ return {
           vue = { { 'prettierd', 'prettier' } },
           python = { { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' } },
           rust = { 'rustfmt' },
+          markdown = { 'prettierd', 'prettier' },
           ['_'] = { 'trim_whitespace' },
         },
       })
