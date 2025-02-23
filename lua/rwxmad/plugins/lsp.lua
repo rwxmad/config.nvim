@@ -2,7 +2,6 @@ return {
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      'folke/neodev.nvim',
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
@@ -10,13 +9,6 @@ return {
       'stevearc/conform.nvim',
     },
     config = function()
-      require('neodev').setup({
-        -- library = {
-        --   plugins = { "nvim-dap-ui" },
-        --   types = true,
-        -- },
-      })
-
       local lsp = require('rwxmad.util.lsp')
 
       lsp.on_attach(function(client, buffer)
@@ -277,5 +269,17 @@ return {
         },
       })
     end,
+  },
+
+  {
+    'folke/lazydev.nvim',
+    ft = 'lua', -- only load on lua files
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+      },
+    },
   },
 }
