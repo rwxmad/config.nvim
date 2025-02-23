@@ -13,6 +13,7 @@
 - [neovim](https://github.com/neovim/neovim) (>= 0.10)
 - [npm](https://github.com/npm/cli)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [fd](https://github.com/sharkdp/fd)
 
 ---
 
