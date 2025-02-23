@@ -11,6 +11,10 @@ cmp.setup({
     completeopt = 'menu,menuone,noinsert',
   },
   sources = {
+    {
+      name = 'lazydev',
+      group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+    },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'path' },
