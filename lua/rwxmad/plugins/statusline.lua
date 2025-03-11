@@ -32,13 +32,20 @@ return {
           lualine_a = { 'mode' },
           lualine_b = {
             { 'branch', icon = '' },
-            { 'diff', symbols = { added = ' ', modified = '柳', removed = ' ' } },
           },
           lualine_c = {
             {
               'filename',
-              file_status = true, -- displays file status (readonly status, modified status)
-              path = 0, -- 0 = just filename, 1 = relative path, 2 = absolute path
+              file_status = true, -- Displays file status (readonly status, modified status)
+              path = 1, -- 0: Just the filename
+              -- 1: Relative path
+              -- 2: Absolute path
+              -- 3: Absolute path, with tilde as the home directory
+              -- 4: Filename and parent dir, with tilde as the home directory
+              symbols = {
+                modified = '[+]', -- Text to show when the file is modified.
+                readonly = ' 󰌾 ', -- Text to show when the file is non-modifiable or readonly.
+              },
             },
           },
           lualine_x = {
@@ -47,6 +54,7 @@ return {
               sources = { 'nvim_lsp' },
               symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
             },
+            { 'diff', symbols = { added = ' ', modified = '柳', removed = ' ' } },
             'encoding',
             'filetype',
           },
