@@ -99,9 +99,3 @@ vim.keymap.set('n', '<leader>hy', '<cmd>Gitsigns undo_stage_hunk<CR>')
 vim.keymap.set('n', '<leader>hr', '<cmd>Gitsigns reset_hunk<CR>')
 vim.keymap.set('n', '<leader>hp', '<cmd>Gitsigns preview_hunk<CR>')
 vim.keymap.set('n', '<leader>hb', '<cmd>Gitsigns blame_line<CR>')
-
--- -------------------------------------------------------------------------------------------------
--- Glow
--- -------------------------------------------------------------------------------------------------
-
-vim.keymap.set('n', '<leader>p', '<cmd>Glow<CR>')
