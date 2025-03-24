@@ -71,3 +71,11 @@ vim.keymap.set('n', '<leader>hy', '<cmd>Gitsigns undo_stage_hunk<CR>')
 vim.keymap.set('n', '<leader>hr', '<cmd>Gitsigns reset_hunk<CR>')
 vim.keymap.set('n', '<leader>hp', '<cmd>Gitsigns preview_hunk<CR>')
 vim.keymap.set('n', '<leader>hb', '<cmd>Gitsigns blame_line<CR>')
+
+-- -------------------------------------------------------------------------------------------------
+-- Diagnostics
+-- -------------------------------------------------------------------------------------------------
+
+vim.keymap.set('n', '<leader>ld', function()
+  vim.diagnostic.open_float()
+end)
