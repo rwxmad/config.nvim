@@ -195,6 +195,12 @@ return {
         end,
       },
       {
+        '<c-d>',
+        function()
+          Snacks.terminal.toggle()
+        end,
+      },
+      {
         ']]',
         function()
           Snacks.words.jump(vim.v.count1)
