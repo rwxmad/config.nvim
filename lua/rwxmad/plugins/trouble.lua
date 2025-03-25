@@ -1,6 +1,12 @@
 return {
   'folke/trouble.nvim',
-  opts = {},
+  opts = {
+    modes = {
+      lsp = {
+        win = { position = 'right' },
+      },
+    },
+  },
   cmd = 'Trouble',
   keys = {
     {
