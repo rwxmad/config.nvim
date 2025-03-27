@@ -32,7 +32,7 @@ return {
         sections = {
           lualine_a = { 'mode' },
           lualine_b = {
-            { 'branch', icon = '' },
+            { 'branch', icon = icons.git.branch },
           },
           lualine_c = {
             {
@@ -65,7 +65,10 @@ return {
                 hint = icons.diagnostics.Hint,
               },
             },
-            { 'diff', symbols = { added = ' ', modified = '柳', removed = ' ' } },
+            {
+              'diff',
+              symbols = { added = icons.git.added, modified = icons.git.modified, removed = icons.git.removed },
+            },
             'encoding',
             'filetype',
           },

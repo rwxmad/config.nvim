@@ -20,6 +20,7 @@ local defaults = {
       added = ' ',
       modified = ' ',
       removed = ' ',
+      branch = '',
     },
     kinds = {
       Array = ' ',
