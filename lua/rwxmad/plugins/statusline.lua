@@ -14,6 +14,10 @@ return {
     opts = function()
       -- PERF: we don't need this lualine require madness 🤷
       local lualine_require = require('lualine_require')
+
+      -- get default colors from colorscheme
+      local colorscheme_default_colors = require('solarized-osaka.colors').default
+
       lualine_require.require = require
 
       local icons = require('rwxmad.defaults').icons
@@ -46,6 +50,11 @@ return {
                 modified = '[+]', -- Text to show when the file is modified.
                 readonly = ' 󰌾 ', -- Text to show when the file is non-modifiable or readonly.
               },
+            },
+            {
+              require('noice').api.status.mode.get,
+              cond = require('noice').api.status.mode.has,
+              color = { fg = colorscheme_default_colors.yellow500 },
             },
           },
           lualine_x = {
