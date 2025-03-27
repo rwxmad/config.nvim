@@ -44,17 +44,15 @@ return {
         silent = true,
         desc = 'Find the buffer and close',
       },
-
-      -- Jump to buffer by number
-      -- vim.keymap.set('n', '<leader>1', '<cmd>BufferLineGoToBuffer 1<CR>', { silent = true })
-      -- vim.keymap.set('n', '<leader>2', '<cmd>BufferLineGoToBuffer 2<CR>', { silent = true })
-      -- vim.keymap.set('n', '<leader>3', '<cmd>BufferLineGoToBuffer 3<CR>', { silent = true })
-      -- vim.keymap.set('n', '<leader>4', '<cmd>BufferLineGoToBuffer 4<CR>', { silent = true })
-      -- vim.keymap.set('n', '<leader>5', '<cmd>BufferLineGoToBuffer 5<CR>', { silent = true })
-      -- vim.keymap.set('n', '<leader>6', '<cmd>BufferLineGoToBuffer 6<CR>', { silent = true })
-      -- vim.keymap.set('n', '<leader>7', '<cmd>BufferLineGoToBuffer 7<CR>', { silent = true })
-      -- vim.keymap.set('n', '<leader>8', '<cmd>BufferLineGoToBuffer 8<CR>', { silent = true })
-      -- vim.keymap.set('n', '<leader>9', '<cmd>BufferLineGoToBuffer 9<CR>', { silent = true })
+      { '<leader>1', '<cmd>BufferLineGoToBuffer 1<CR>', silent = true, desc = 'Jump to buffer with index 1' },
+      { '<leader>2', '<cmd>BufferLineGoToBuffer 2<CR>', silent = true, desc = 'Jump to buffer with index 2' },
+      { '<leader>3', '<cmd>BufferLineGoToBuffer 3<CR>', silent = true, desc = 'Jump to buffer with index 3' },
+      { '<leader>4', '<cmd>BufferLineGoToBuffer 4<CR>', silent = true, desc = 'Jump to buffer with index 4' },
+      { '<leader>5', '<cmd>BufferLineGoToBuffer 5<CR>', silent = true, desc = 'Jump to buffer with index 5' },
+      { '<leader>6', '<cmd>BufferLineGoToBuffer 6<CR>', silent = true, desc = 'Jump to buffer with index 6' },
+      { '<leader>7', '<cmd>BufferLineGoToBuffer 7<CR>', silent = true, desc = 'Jump to buffer with index 7' },
+      { '<leader>8', '<cmd>BufferLineGoToBuffer 8<CR>', silent = true, desc = 'Jump to buffer with index 8' },
+      { '<leader>9', '<cmd>BufferLineGoToBuffer 9<CR>', silent = true, desc = 'Jump to buffer with index 9' },
     },
     opts = {
       options = {
