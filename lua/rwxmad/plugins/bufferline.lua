@@ -12,6 +12,49 @@ return {
       { '<S-l>', '<cmd>BufferLineCycleNext<cr>', desc = 'Next Buffer' },
       { '[b', '<cmd>BufferLineCyclePrev<cr>', desc = 'Prev Buffer' },
       { ']b', '<cmd>BufferLineCycleNext<cr>', desc = 'Next Buffer' },
+      {
+        '<leader>bn',
+        '<cmd>BufferLineMoveNext<CR>',
+        silent = true,
+        desc = 'Move current buffer to right',
+      },
+      {
+        '<leader>bp',
+        '<cmd>BufferLineMovePrev<CR>',
+        silent = true,
+        desc = 'Move current buffer to left',
+      },
+      {
+        '<leader>be',
+        '<cmd>BufferLineSortByExtension<CR>',
+        silent = true,
+        desc = 'Sort buffers by extension',
+      },
+      {
+        '<leader>bd',
+        '<cmd>BufferLineSortByDirectory<CR>',
+        silent = true,
+        desc = 'Sort buffers by directory',
+      },
+      { '<leader>bb', '<cmd>BufferLinePick<CR>', silent = true, desc = 'Search and jump to buffer' },
+      { '<leader>bd', '<cmd>bdelete<CR>', silent = true, desc = 'Close current buffer' },
+      {
+        '<leader>bc',
+        '<cmd>BufferLinePickClose<CR>',
+        silent = true,
+        desc = 'Find the buffer and close',
+      },
+
+      -- Jump to buffer by number
+      -- vim.keymap.set('n', '<leader>1', '<cmd>BufferLineGoToBuffer 1<CR>', { silent = true })
+      -- vim.keymap.set('n', '<leader>2', '<cmd>BufferLineGoToBuffer 2<CR>', { silent = true })
+      -- vim.keymap.set('n', '<leader>3', '<cmd>BufferLineGoToBuffer 3<CR>', { silent = true })
+      -- vim.keymap.set('n', '<leader>4', '<cmd>BufferLineGoToBuffer 4<CR>', { silent = true })
+      -- vim.keymap.set('n', '<leader>5', '<cmd>BufferLineGoToBuffer 5<CR>', { silent = true })
+      -- vim.keymap.set('n', '<leader>6', '<cmd>BufferLineGoToBuffer 6<CR>', { silent = true })
+      -- vim.keymap.set('n', '<leader>7', '<cmd>BufferLineGoToBuffer 7<CR>', { silent = true })
+      -- vim.keymap.set('n', '<leader>8', '<cmd>BufferLineGoToBuffer 8<CR>', { silent = true })
+      -- vim.keymap.set('n', '<leader>9', '<cmd>BufferLineGoToBuffer 9<CR>', { silent = true })
     },
     opts = {
       options = {
