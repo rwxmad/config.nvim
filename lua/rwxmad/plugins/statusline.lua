@@ -58,7 +58,12 @@ return {
             {
               'diagnostics',
               sources = { 'nvim_lsp' },
-              symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+              symbols = {
+                error = icons.diagnostics.Error,
+                warn = icons.diagnostics.Warn,
+                info = icons.diagnostics.Info,
+                hint = icons.diagnostics.Hint,
+              },
             },
             { 'diff', symbols = { added = ' ', modified = '柳', removed = ' ' } },
             'encoding',
