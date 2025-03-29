@@ -49,7 +49,13 @@ return {
               },
             },
             {
-              require('noice').api.status.mode.get,
+              function()
+                local mode = require('noice').api.status.mode.get()
+                if mode and mode:match('^recording') then
+                  return mode
+                end
+                return ''
+              end,
               cond = require('noice').api.status.mode.has,
               color = { fg = Snacks.util.color('Statement') },
             },
