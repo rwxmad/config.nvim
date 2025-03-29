@@ -5,7 +5,12 @@ return {
     lazy = false,
     opts = {
       indent = {},
-      lazygit = {},
+      lazygit = {
+        win = {
+          width = 0.9,
+          height = 0.9,
+        },
+      },
       input = {},
       scratch = {},
       git = {},
