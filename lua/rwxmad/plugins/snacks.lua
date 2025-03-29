@@ -11,6 +11,14 @@ return {
       git = {},
       words = {},
       notifier = {},
+      terminal = {
+        win = {
+          position = 'float',
+          width = 0.6,
+          height = 0.6,
+          border = 'rounded',
+        },
+      },
       dashboard = {
         sections = {
           { section = 'header' },
