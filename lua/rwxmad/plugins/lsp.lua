@@ -35,6 +35,12 @@ return {
           prefix = '●',
         },
         severity_sort = true,
+        float = {
+          border = 'rounded',
+          source = 'if_many',
+          header = '',
+          prefix = '',
+        },
       })
 
       local lspconfig = require('lspconfig')
