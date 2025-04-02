@@ -117,10 +117,10 @@ return {
           },
         },
         eslint = {
-          -- TODO: finish this
           enable = true,
-          format = { enable = true },
+          format = true,
           autoFixOnSave = true,
+          workingDirectories = { mode = 'auto' },
         },
         rust_analyzer = {
           settings = {
