@@ -127,6 +127,7 @@ nvim
 | [neogen](https://github.com/danymat/neogen)                                                   | A better annotation generator. Supports multiple languages and annotation conventions                                                             |
 | [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)                             | ✅ Highlight, list and search todo comments in your projects                                                                                      |
 | [trouble.nvim](https://github.com/folke/trouble.nvim)                                         | 🚦 A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing         |
+| [fzf-lua](https://github.com/ibhagwan/fzf-lua)                                                | Improved fzf.vim written in lua                                                                                                                   |
 
 ---
 
