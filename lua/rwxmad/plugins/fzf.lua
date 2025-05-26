@@ -5,7 +5,7 @@ return {
     opts = {},
     keys = {
       {
-        '<leader>fm',
+        '<leader>sm',
         function()
           require('fzf-lua').keymaps()
         end,
