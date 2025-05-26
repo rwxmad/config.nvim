@@ -3,6 +3,15 @@ return {
     'ibhagwan/fzf-lua',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {},
+    keys = {
+      {
+        '<leader>fm',
+        function()
+          require('fzf-lua').keymaps()
+        end,
+        desc = 'List keymaps',
+      },
+    },
     config = function()
       local lsp = require('rwxmad.util.lsp')
 
