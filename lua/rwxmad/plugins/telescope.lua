@@ -7,6 +7,7 @@ return {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
       },
+      'nvim-telescope/telescope-ui-select.nvim',
       'nvim-telescope/telescope-file-browser.nvim',
       'nvim-telescope/telescope-media-files.nvim',
       'AckslD/nvim-neoclip.lua',
@@ -26,6 +27,11 @@ return {
           },
         },
         extensions = {
+          ['ui-select'] = {
+            require('telescope.themes').get_dropdown({
+              -- even more opts
+            }),
+          },
           file_browser = {
             path = '%:p:h',
             cwd = vim.fn.expand('%:p:h'),
@@ -64,6 +70,7 @@ return {
       vim.keymap.set('n', '<leader>fm', '<cmd>Telescope media_files<CR>')
 
       require('telescope').load_extension('fzf')
+      require('telescope').load_extension('ui-select')
       require('telescope').load_extension('file_browser')
       require('telescope').load_extension('media_files')
       require('telescope').load_extension('neoclip')
