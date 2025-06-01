@@ -13,6 +13,20 @@ return {
       'AckslD/nvim-neoclip.lua',
     },
     run = 'make',
+    keys = {
+      { '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Find files' },
+      { '<leader>fg', '<cmd>Telescope live_grep<cr>', desc = 'Grep' },
+      { '<leader>bg', '<cmd>Telescope current_buffer_fuzzy_find<cr>', desc = 'Buffer' },
+      { '<leader>fo', '<cmd>Telescope oldfiles<cr>', desc = 'Recent' },
+
+      { '<leader>gr', '<cmd>Telescope lsp_references<cr>', desc = 'Lsp references' },
+
+      { '<leader>fb', '<cmd>Telescope file_browser<cr>', desc = 'File browser' },
+      { '<leader>fn', '<cmd>Telescope neoclip<cr>', desc = 'Clipboard history' },
+      { '<leader>fm', '<cmd>Telescope media_files<cr>', desc = 'Media files' },
+
+      { '<leader>sm', '<cmd>Telescope keymaps<cr>', desc = 'Search keymaps' },
+    },
     opts = function()
       local fb_actions = require('telescope').extensions.file_browser.actions
 
@@ -56,18 +70,6 @@ return {
     end,
     config = function(_, opts)
       require('telescope').setup(opts)
-      -- TODO: move keys to keys section
-
-      vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<CR>')
-      vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')
-      vim.keymap.set('n', '<leader>bg', '<cmd>Telescope current_buffer_fuzzy_find<CR>')
-      vim.keymap.set('n', '<leader>fo', '<cmd>Telescope oldfiles<CR>')
-
-      vim.keymap.set('n', '<leader>gr', '<cmd>Telescope lsp_references<CR>')
-
-      vim.keymap.set('n', '<leader>fb', '<cmd>Telescope file_browser<CR>')
-      vim.keymap.set('n', '<leader>fn', '<cmd>Telescope neoclip<CR>')
-      vim.keymap.set('n', '<leader>fm', '<cmd>Telescope media_files<CR>')
 
       require('telescope').load_extension('fzf')
       require('telescope').load_extension('ui-select')
