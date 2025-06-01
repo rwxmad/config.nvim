@@ -123,7 +123,7 @@ nvim
 | [neogen](https://github.com/danymat/neogen)                                                   | A better annotation generator. Supports multiple languages and annotation conventions                                                             |
 | [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)                             | ✅ Highlight, list and search todo comments in your projects                                                                                      |
 | [trouble.nvim](https://github.com/folke/trouble.nvim)                                         | 🚦 A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing         |
-| [fzf-lua](https://github.com/ibhagwan/fzf-lua)                                                | Improved fzf.vim written in lua                                                                                                                   |
+| [telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim)        | It sets vim.ui.select to telescope                                                                                                                |
 | [copilot.lua](https://github.com/zbirenbaum/copilot.lua)                                      | Fully featured & enhanced replacement for copilot.vim complete with API for interacting with Github Copilot                                       |
 | [CopilotChat.nvim](https://github.com/CopilotC-Nvim/CopilotChat.nvim)                         | Chat with GitHub Copilot in Neovim                                                                                                                |
 
