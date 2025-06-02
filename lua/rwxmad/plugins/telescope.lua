@@ -13,6 +13,7 @@ return {
       'AckslD/nvim-neoclip.lua',
     },
     run = 'make',
+    lazy = false,
     keys = {
       { '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Find files' },
       { '<leader>fg', '<cmd>Telescope live_grep<cr>', desc = 'Grep' },
@@ -42,9 +43,7 @@ return {
         },
         extensions = {
           ['ui-select'] = {
-            require('telescope.themes').get_dropdown({
-              -- even more opts
-            }),
+            require('telescope.themes').get_dropdown({}),
           },
           file_browser = {
             path = '%:p:h',
