@@ -19,13 +19,35 @@ return {
       { '<leader>fg', '<cmd>Telescope live_grep<cr>', desc = 'Grep' },
       { '<leader>bg', '<cmd>Telescope current_buffer_fuzzy_find<cr>', desc = 'Buffer' },
       { '<leader>fo', '<cmd>Telescope oldfiles<cr>', desc = 'Recent' },
-
-      { '<leader>gr', '<cmd>Telescope lsp_references<cr>', desc = 'Lsp references' },
-
       { '<leader>fb', '<cmd>Telescope file_browser<cr>', desc = 'File browser' },
       { '<leader>fn', '<cmd>Telescope neoclip<cr>', desc = 'Clipboard history' },
       { '<leader>fm', '<cmd>Telescope media_files<cr>', desc = 'Media files' },
 
+      -- lsp
+      {
+        'gd',
+        function()
+          require('telescope.builtin').lsp_definitions({ reuse_win = true })
+        end,
+        desc = 'Goto Definition',
+      },
+      { 'gr', '<cmd>Telescope lsp_references<cr>', desc = 'References', nowait = true },
+      {
+        'gI',
+        function()
+          require('telescope.builtin').lsp_implementations({ reuse_win = true })
+        end,
+        desc = 'Goto Implementation',
+      },
+      {
+        'gy',
+        function()
+          require('telescope.builtin').lsp_type_definitions({ reuse_win = true })
+        end,
+        desc = 'Goto T[y]pe Definition',
+      },
+
+      -- search
       { '<leader>sm', '<cmd>Telescope keymaps<cr>', desc = 'Search keymaps' },
     },
     opts = function()
