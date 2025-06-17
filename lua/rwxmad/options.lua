@@ -26,7 +26,8 @@ set.swapfile = false
 set.backup = false
 set.undofile = true
 
-set.number = true
+set.nu = true -- line numbers
+set.rnu = true -- relative number
 set.ruler = true
 set.signcolumn = 'yes'
 set.autoindent = true
