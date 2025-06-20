@@ -126,6 +126,7 @@ nvim
 | [telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim)        | It sets vim.ui.select to telescope                                                                                                                |
 | [copilot.lua](https://github.com/zbirenbaum/copilot.lua)                                      | Fully featured & enhanced replacement for copilot.vim complete with API for interacting with Github Copilot                                       |
 | [CopilotChat.nvim](https://github.com/CopilotC-Nvim/CopilotChat.nvim)                         | Chat with GitHub Copilot in Neovim                                                                                                                |
+| [nvim-highlight-colors](https://github.com/brenoprata10/nvim-highlight-colors)                | Highlight colors for neovim                                                                                                                       |
 
 ---
 
