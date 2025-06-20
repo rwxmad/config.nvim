@@ -37,6 +37,7 @@ return {
           auto_show_delay_ms = 200,
           window = {
             border = 'rounded',
+            winhighlight = 'Normal:BlinkCmpMenuBorder,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None,EndOfBuffer:BlinkCmpDoc,BlinkCmpDoc:BlinkCmpMenuBorder,FloatSeparator:BlinkCmpMenuBorder,BlinkCmpDocSeparator:BlinkCmpMenuBorder',
           },
         },
         ghost_text = {
