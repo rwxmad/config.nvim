@@ -69,22 +69,19 @@ return {
         html = {},
         cssls = {},
         -- FIXME: tsserver renamed to ts_ls but not yet released, so keep this for now
-        ts_ls = {
-          enabled = false,
-        },
+        -- ts_ls = {
+        --   enabled = false,
+        -- },
         vtsls = {
-          init_options = {
-            plugins = {
-              -- NOTE: for typescript + vue work
-              {
-                name = '@vue/typescript-plugin',
-                -- location = '/usr/local/lib/node_modules/@vue/typescript-plugin',
-                location = '/Users/rwxmad/.npm/lib/node_modules/@vue/typescript-plugin',
-                languages = { 'javascript', 'typescript', 'vue' },
-              },
-            },
+          filetypes = {
+            'javascript',
+            'javascriptreact',
+            'javascript.jsx',
+            'typescript',
+            'typescriptreact',
+            'typescript.tsx',
+            'vue',
           },
-          single_file_support = true,
           settings = {
             complete_function_calls = true,
             vtsls = {
@@ -122,15 +119,6 @@ return {
                 variableTypes = { enabled = false },
               },
             },
-          },
-          filetypes = {
-            'javascript',
-            'javascriptreact',
-            'javascript.jsx',
-            'typescript',
-            'typescriptreact',
-            'typescript.tsx',
-            'vue',
           },
         },
         eslint = {
