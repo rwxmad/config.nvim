@@ -68,7 +68,11 @@ return {
       local servers = {
         html = {},
         cssls = {},
+        -- FIXME: tsserver renamed to ts_ls but not yet released, so keep this for now
         ts_ls = {
+          enabled = false,
+        },
+        vtsls = {
           init_options = {
             plugins = {
               -- NOTE: for typescript + vue work
@@ -82,37 +86,50 @@ return {
           },
           single_file_support = true,
           settings = {
+            complete_function_calls = true,
+            vtsls = {
+              enableMoveToFileCodeAction = true,
+              autoUseWorkspaceTsdk = true,
+              experimental = {
+                maxInlayHintLength = 30,
+                completion = {
+                  enableServerSideFuzzyMatch = true,
+                },
+              },
+              tsserver = {
+                globalPlugins = {
+                  {
+                    name = '@vue/typescript-plugin',
+                    location = lsp.get_pkg_path('vue-language-server', '/node_modules/@vue/language-server'),
+                    languages = { 'vue' },
+                    configNamespace = 'typescript',
+                    enableForWorkspaceTypeScriptVersions = true,
+                  },
+                },
+              },
+            },
             typescript = {
-              inlayHints = {
-                includeInlayParameterNameHints = 'literal',
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = false,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
+              updateImportsOnFileMove = { enabled = 'always' },
+              suggest = {
+                completeFunctionCalls = true,
               },
-            },
-            javascript = {
               inlayHints = {
-                includeInlayParameterNameHints = 'all',
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
+                enumMemberValues = { enabled = true },
+                functionLikeReturnTypes = { enabled = true },
+                parameterNames = { enabled = 'literals' },
+                parameterTypes = { enabled = true },
+                propertyDeclarationTypes = { enabled = true },
+                variableTypes = { enabled = false },
               },
-            },
-            completions = {
-              completeFunctionCalls = true,
             },
           },
           filetypes = {
             'javascript',
             'javascriptreact',
+            'javascript.jsx',
             'typescript',
             'typescriptreact',
+            'typescript.tsx',
             'vue',
           },
         },
@@ -180,7 +197,7 @@ return {
           },
         },
         pyright = {},
-        vue_ls = {
+        volar = {
           init_options = {
             vue = {
               hybridMode = true,
