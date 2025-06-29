@@ -99,7 +99,6 @@ return {
                     name = '@vue/typescript-plugin',
                     location = lsp.get_pkg_path('vue-language-server', '/node_modules/@vue/language-server'),
                     languages = { 'vue' },
-                    configNamespace = 'typescript',
                     enableForWorkspaceTypeScriptVersions = true,
                   },
                 },
@@ -185,7 +184,7 @@ return {
           },
         },
         pyright = {},
-        volar = {
+        vue_ls = {
           init_options = {
             vue = {
               hybridMode = true,
@@ -195,6 +194,9 @@ return {
         bashls = {},
         marksman = {},
       }
+
+      -- enable vue ls
+      vim.lsp.enable('vue_ls')
 
       local options = {
         capabilities = capabilities,
