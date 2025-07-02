@@ -2,8 +2,8 @@ return {
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
+      'mason-org/mason.nvim',
+      'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
       -- Autoformatting
       'stevearc/conform.nvim',
@@ -244,7 +244,7 @@ return {
       require('mason-lspconfig').setup({
         ensure_installed = server_list,
         automatic_installation = true,
-        automatic_enable = true,
+        automatic_enable = false,
       })
 
       local ensure_installed = {
