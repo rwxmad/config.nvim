@@ -127,6 +127,41 @@ return {
     },
     keys = {
       {
+        '<leader>ff',
+        function()
+          Snacks.picker.files()
+        end,
+        desc = 'Find files',
+      },
+      {
+        '<leader>fg',
+        function()
+          Snacks.picker.grep()
+        end,
+        desc = 'Grep',
+      },
+      {
+        '<leader>bg',
+        function()
+          Snacks.picker.grep_buffers()
+        end,
+        desc = 'Buffers grep',
+      },
+      {
+        '<leader>fo',
+        function()
+          Snacks.picker.recent()
+        end,
+        desc = 'Recent',
+      },
+      {
+        '<leader>fb',
+        function()
+          Snacks.explorer()
+        end,
+        desc = 'File explorer',
+      },
+      {
         '<leader>.',
         function()
           Snacks.scratch()
