@@ -16,6 +16,9 @@ return {
       git = {},
       words = {},
       notifier = {},
+      explorer = {},
+      picker = {},
+      image = {},
       terminal = {
         win = {
           position = 'float',
@@ -99,7 +102,7 @@ return {
             { icon = ' ', key = 'f', desc = 'Find File', action = ":lua Snacks.dashboard.pick('files')" },
             { icon = ' ', key = 'n', desc = 'New File', action = ':ene | startinsert' },
             { icon = ' ', key = 'g', desc = 'Find Text', action = ":lua Snacks.dashboard.pick('live_grep')" },
-            { icon = ' ', key = 'b', desc = 'File browser', action = ':Telescope file_browser' },
+            { icon = ' ', key = 'b', desc = 'File browser', action = ':lua Snacks.explorer()' },
             { icon = ' ', key = 'o', desc = 'Recent Files', action = ":lua Snacks.dashboard.pick('oldfiles')" },
             {
               icon = ' ',
