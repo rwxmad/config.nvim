@@ -1,9 +1,9 @@
 return {
   {
-    'neovim/nvim-lspconfig',
+    'mason-org/mason.nvim',
     dependencies = {
-      'mason-org/mason.nvim',
-      'mason-org/mason-lspconfig.nvim',
+      -- 'neovim/nvim-lspconfig',
+      { 'mason-org/mason-lspconfig.nvim', config = function() end },
       'WhoIsSethDaniel/mason-tool-installer.nvim',
       -- Autoformatting
       'stevearc/conform.nvim',
@@ -11,39 +11,6 @@ return {
     config = function()
       local lsp = require('rwxmad.util.lsp')
 
-      lsp.on_attach(function(client, buffer)
-        vim.opt_local.omnifunc = 'v:lua.vim.lsp.omnifunc'
-        -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = 0 })
-        -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = 0 })
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = 0 })
-        -- vim.keymap.set('n', 'gT', vim.lsp.buf.type_definition, { buffer = 0 })
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = 0 })
-
-        vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, { buffer = 0 })
-        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = 0 })
-      end)
-
-      lsp.setup()
-
-      -- diagnostics
-      vim.diagnostic.config({
-        underline = true,
-        update_in_insert = false,
-        virtual_text = {
-          spacing = 4,
-          source = 'if_many',
-          prefix = '●',
-        },
-        severity_sort = true,
-        float = {
-          border = 'rounded',
-          source = 'if_many',
-          header = '',
-          prefix = '',
-        },
-      })
-
-      local lspconfig = require('lspconfig')
       local capabilities = nil
 
       if pcall(require, 'blink.cmp') then
@@ -65,187 +32,27 @@ return {
         end)
       end
 
-      local servers = {
-        html = {},
-        cssls = {},
-        -- FIXME: tsserver renamed to ts_ls but not yet released, so keep this for now
-        -- ts_ls = {
-        --   enabled = false,
-        -- },
-        vtsls = {
-          filetypes = {
-            'javascript',
-            'javascriptreact',
-            'javascript.jsx',
-            'typescript',
-            'typescriptreact',
-            'typescript.tsx',
-            'vue',
-          },
-          settings = {
-            complete_function_calls = true,
-            vtsls = {
-              enableMoveToFileCodeAction = true,
-              autoUseWorkspaceTsdk = true,
-              experimental = {
-                maxInlayHintLength = 30,
-                completion = {
-                  enableServerSideFuzzyMatch = true,
-                },
-              },
-              tsserver = {
-                globalPlugins = {
-                  {
-                    name = '@vue/typescript-plugin',
-                    location = lsp.get_pkg_path('vue-language-server', '/node_modules/@vue/language-server'),
-                    languages = { 'vue' },
-                    enableForWorkspaceTypeScriptVersions = true,
-                  },
-                },
-              },
-            },
-            typescript = {
-              updateImportsOnFileMove = { enabled = 'always' },
-              suggest = {
-                completeFunctionCalls = true,
-              },
-              inlayHints = {
-                enumMemberValues = { enabled = true },
-                functionLikeReturnTypes = { enabled = true },
-                parameterNames = { enabled = 'literals' },
-                parameterTypes = { enabled = true },
-                propertyDeclarationTypes = { enabled = true },
-                variableTypes = { enabled = false },
-              },
-            },
-          },
-        },
-        eslint = {
-          enable = true,
-          format = true,
-          autoFixOnSave = true,
-          workingDirectories = { mode = 'auto' },
-        },
-        rust_analyzer = {
-          settings = {
-            ['rust-analyzer'] = {
-              cargo = {
-                allFeatures = true,
-              },
-              checkOnSave = {
-                allFeatures = true,
-                command = 'clippy',
-              },
-              procMacro = {
-                ignored = {
-                  ['async-trait'] = { 'async_trait' },
-                  ['napi-derive'] = { 'napi' },
-                  ['async-recursion'] = { 'async_recursion' },
-                },
-              },
-            },
-          },
-        },
-        emmet_ls = {},
-        tailwindcss = {},
-        jsonls = {},
-        lua_ls = {
-          settings = {
-            Lua = {
-              runtime = {
-                version = 'LuaJIT',
-              },
-              diagnostics = {
-                globals = { 'vim' },
-              },
-              completion = {
-                callSnippet = 'Replace',
-              },
-              workspace = {
-                library = vim.api.nvim_get_runtime_file('', true),
-                checkThirdParty = false,
-              },
-              telemetry = {
-                enable = false,
-              },
-              hint = {
-                enable = true,
-                arrayIndex = 'Disable',
-              },
-              format = {
-                enable = true,
-                defaultConfig = {
-                  indent_style = 'space',
-                  indent_size = '2',
-                  continuation_indent_size = '2',
-                },
-              },
-            },
-          },
-        },
-        pyright = {},
-        vue_ls = {
-          init_options = {
-            vue = {
-              hybridMode = true,
-            },
-          },
-        },
-        bashls = {},
-        marksman = {},
-      }
+      lsp.setup()
 
-      -- enable vue ls
-      vim.lsp.enable('vue_ls')
-
-      local options = {
+      vim.lsp.config('*', {
         capabilities = capabilities,
-      }
-
-      local server_list = {}
-
-      for server, opts in pairs(servers) do
-        opts = vim.tbl_deep_extend('force', {}, options, opts or {})
-        table.insert(server_list, server)
-        -- FIXME: remove or configure
-        -- if server == 'tsserver' then
-        --   require('typescript-tools').setup({
-        --     on_attach = on_attach,
-        --     filetypes = {
-        --       'javascript',
-        --       'javascriptreact',
-        --       'typescript',
-        --       'typescriptreact',
-        --       'vue',
-        --     },
-        --     settings = {
-        --       separate_diagnostic_server = true,
-        --       tsserver_file_preferences = {
-        --         includeInlayParameterNameHints = 'all',
-        --         includeCompletionsForModuleExports = true,
-        --         quotePreference = 'auto',
-        --       },
-        --       tsserver_plugins = {
-        --         '@vue/typescript-plugin',
-        --       },
-        --     },
-        --   })
-        if server == 'rust_analyzer' then
-          -- require('rust-tools').setup({ server = opts })
-          lspconfig[server].setup(opts)
-        else
-          lspconfig[server].setup(opts)
-        end
-      end
-
-      require('mason').setup()
-
-      -- mason-lspconfig
-      require('mason-lspconfig').setup({
-        ensure_installed = server_list,
-        automatic_installation = true,
-        automatic_enable = false,
+        root_markers = { '.git' },
       })
+
+      local servers = {
+        'html',
+        'cssls',
+        'emmet_ls',
+        'eslint',
+        'jsonls',
+        'pyright',
+        'bashls',
+        'vtsls',
+        'vue_ls',
+        'lua_ls',
+        'tailwindcss',
+        'rust_analyzer',
+      }
 
       local ensure_installed = {
         'stylua',
@@ -254,8 +61,35 @@ return {
         'prettier',
       }
 
+      require('mason').setup()
+
+      -- mason-lspconfig
+      require('mason-lspconfig').setup({
+        ensure_installed = servers,
+        automatic_installation = true,
+        automatic_enable = true,
+      })
+
+      -- diagnostics
+      vim.diagnostic.config({
+        underline = true,
+        update_in_insert = false,
+        virtual_text = {
+          spacing = 4,
+          source = 'if_many',
+          prefix = '●',
+        },
+        severity_sort = true,
+        float = {
+          border = 'rounded',
+          source = 'if_many',
+          header = '',
+          prefix = '',
+        },
+      })
+
       vim.list_extend(ensure_installed, servers)
-      require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
+      require('mason-tool-installer').setup({ ensure_installed = ensure_installed, automatic_enable = false })
 
       -- Autoformatting Setup
       require('conform').setup({

@@ -18,11 +18,59 @@ end
 
 function M.on_attach(on_attach)
   return vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
     callback = function(args)
-      local buffer = args.buf
+      -- defaults:
+      -- https://neovim.io/doc/user/news-0.11.html#_defaults
+      vim.opt_local.omnifunc = 'v:lua.vim.lsp.omnifunc'
+      -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = 0 })
+      -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = 0 })
+      vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = 0 })
+      -- vim.keymap.set('n', 'gT', vim.lsp.buf.type_definition, { buffer = 0 })
+      vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = 0 })
+
+      vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, { buffer = 0 })
+      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = 0 })
+
+      local function client_supports_method(client, method, bufnr)
+        if vim.fn.has('nvim-0.11') == 1 then
+          return client:supports_method(method, bufnr)
+        else
+          return client.supports_method(method, { bufnr = bufnr })
+        end
+      end
+
       local client = vim.lsp.get_client_by_id(args.data.client_id)
-      if client then
-        return on_attach(client, buffer)
+      if
+        client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, args.buf)
+      then
+        local highlight_augroup = vim.api.nvim_create_augroup('lsp-highlight', { clear = false })
+
+        -- cursor stops moving: highlight all instances of the symbol under the cursor
+        -- cursor moves: clear highlighting
+        vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+          buffer = args.buf,
+          group = highlight_augroup,
+          callback = vim.lsp.buf.document_highlight,
+        })
+        vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+          buffer = args.buf,
+          group = highlight_augroup,
+          callback = vim.lsp.buf.clear_references,
+        })
+
+        -- LSP detach -> clear highlighting
+        vim.api.nvim_create_autocmd('LspDetach', {
+          group = vim.api.nvim_create_augroup('lsp-detach', { clear = true }),
+          callback = function(event2)
+            vim.lsp.buf.clear_references()
+            vim.api.nvim_clear_autocmds({ group = 'lsp-highlight', buffer = event2.buf })
+          end,
+        })
+      end
+
+      if on_attach then
+        on_attach(client, args.buf)
       end
     end,
   })
