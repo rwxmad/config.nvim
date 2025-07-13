@@ -17,7 +17,18 @@ return {
       words = {},
       notifier = {},
       explorer = {},
-      picker = {},
+      picker = {
+        sources = {
+          files = {
+            hidden = true,
+            ignored = true,
+            exclude = {
+              '.git/*',
+              'node_modules/*',
+            },
+          },
+        },
+      },
       image = {},
       terminal = {
         win = {
