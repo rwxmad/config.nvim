@@ -16,6 +16,9 @@ return {
       runtime = {
         version = 'LuaJIT',
       },
+      codeLens = {
+        enable = true,
+      },
       diagnostics = {
         globals = { 'vim' },
       },

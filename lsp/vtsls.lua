@@ -51,6 +51,10 @@ return {
         propertyDeclarationTypes = { enabled = true },
         variableTypes = { enabled = false },
       },
+      referencesCodeLens = {
+        showOnAllFunctions = true,
+        enabled = true,
+      },
     },
   },
 }
