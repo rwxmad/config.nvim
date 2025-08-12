@@ -40,3 +40,10 @@ set.expandtab = true
 set.list = true -- Show some invisible characters
 
 vim.g.ai_cmp = true
+
+-- File types
+vim.filetype.add({
+  extension = {
+    mdx = 'mdx',
+  },
+})

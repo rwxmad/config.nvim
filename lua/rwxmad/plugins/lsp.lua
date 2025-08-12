@@ -9,7 +9,7 @@ return {
       'stevearc/conform.nvim',
     },
     config = function()
-      local lsp = require('rwxmad.util.lsp')
+      local lsp = rwxmad.util.lsp
 
       local capabilities = nil
 
@@ -63,6 +63,8 @@ return {
         'lua_ls',
         'tailwindcss',
         'rust_analyzer',
+        'marksman',
+        'mdx_analyzer',
       }
 
       local ensure_installed = {

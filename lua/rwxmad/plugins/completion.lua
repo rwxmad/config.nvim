@@ -2,7 +2,7 @@ return {
   {
     'saghen/blink.cmp',
     -- optional: provides snippets for the snippet source
-    dependencies = { 'rafamadriz/friendly-snippets', { 'L3MON4D3/LuaSnip', build = 'make install_jsregexp' } },
+    dependencies = { { 'L3MON4D3/LuaSnip', build = 'make install_jsregexp' }, 'rafamadriz/friendly-snippets' },
 
     -- use a release tag to download pre-built binaries
     version = '1.*',
@@ -106,8 +106,9 @@ return {
     },
     opts_extend = { 'sources.default' },
     config = function(_, opts)
-      local icons = require('rwxmad.defaults').icons
-      local completion = require('rwxmad.util.cmp')
+      local icons = rwxmad.defaults.icons
+      local completion = rwxmad.util.cmp
+      require('rwxmad.util.snippets')
 
       -- add ai_accept to <Tab> key
       if not opts.keymap['<Tab>'] then
@@ -162,7 +163,7 @@ return {
   {
     'saghen/blink.cmp',
     opts = function(_, opts)
-      local icons = require('rwxmad.defaults').icons
+      local icons = rwxmad.defaults.icons
       opts.appearance = opts.appearance or {}
       opts.appearance.kind_icons = vim.tbl_extend('force', opts.appearance.kind_icons or {}, icons.kinds)
     end,

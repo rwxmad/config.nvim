@@ -64,7 +64,7 @@ return {
         always_show_bufferline = true,
         separator_style = 'thick',
         diagnostics_indicator = function(_, _, diag)
-          local icons = require('rwxmad.defaults').icons.diagnostics
+          local icons = rwxmad.defaults.icons.diagnostics
           local ret = (diag.error and icons.Error .. diag.error .. ' ' or '')
             .. (diag.warning and icons.Warn .. diag.warning or '')
           return vim.trim(ret)

@@ -1,4 +1,3 @@
-require('rwxmad.util.snippets')
 local M = {}
 
 M.actions = {

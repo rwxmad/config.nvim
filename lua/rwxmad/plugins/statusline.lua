@@ -17,7 +17,7 @@ return {
 
       lualine_require.require = require
 
-      local icons = require('rwxmad.defaults').icons
+      local icons = rwxmad.defaults.icons
 
       vim.o.laststatus = vim.g.lualine_laststatus
 
