@@ -27,7 +27,7 @@ function M.on_attach(on_attach)
       -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = 0 })
       -- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = 0 })
       -- vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, { buffer = 0 })
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = 0 })
+      -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = 0 })
 
       vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, { buffer = 0 })
       vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = 0 })
@@ -196,6 +196,22 @@ function M.get_pkg_path(pkg, path, opts)
     )
   end
   return ret
+end
+
+--- Gets a path to a tsdk
+---@param root_dir string
+---@return string
+function M.get_typescript_server_path(root_dir)
+  local project_roots = vim.fs.find('node_modules', { path = root_dir, upward = true, limit = math.huge })
+  for _, project_root in ipairs(project_roots) do
+    local typescript_path = project_root .. '/typescript'
+    local stat = vim.loop.fs_stat(typescript_path)
+    if stat and stat.type == 'directory' then
+      print(typescript_path)
+      return typescript_path .. '/lib'
+    end
+  end
+  return ''
 end
 
 return M
