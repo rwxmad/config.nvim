@@ -26,7 +26,6 @@ return {
           payload,
         },
       }, { bufnr = context.bufnr }, function(_, r)
-        print('res', r)
         local response_data = { { id, r.body } }
         ---@diagnostic disable-next-line: param-type-mismatch
         client:notify('tsserver/response', response_data)
