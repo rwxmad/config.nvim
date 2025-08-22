@@ -147,15 +147,7 @@ return {
       {
         '<leader>fg',
         function()
-          Snacks.picker.grep({
-            finder = 'grep',
-            regex = true,
-            format = 'file',
-            show_empty = true,
-            hidden = true,
-            live = true, -- live grep by default
-            supports_live = true,
-          })
+          Snacks.picker.grep()
         end,
         desc = 'Grep',
       },
