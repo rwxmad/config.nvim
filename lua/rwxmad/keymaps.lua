@@ -54,6 +54,11 @@ map('i', '<A-k>', '<esc><cmd>m .-2<cr>==gi', { desc = 'Move Up' })
 map('v', '<A-j>', ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = 'Move Down' })
 map('v', '<A-k>', ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = 'Move Up' })
 
+-- Windows
+map('n', '<leader>-', '<C-W>s', { desc = 'Split Window Below', remap = true })
+map('n', '<leader>|', '<C-W>v', { desc = 'Split Window Right', remap = true })
+map('n', '<leader>wd', '<C-W>c', { desc = 'Delete Window', remap = true })
+
 -- -------------------------------------------------------------------------------------------------
 -- Diagnostics
 -- -------------------------------------------------------------------------------------------------
