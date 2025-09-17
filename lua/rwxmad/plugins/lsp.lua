@@ -7,9 +7,22 @@ return {
       'WhoIsSethDaniel/mason-tool-installer.nvim',
       -- Autoformatting
       'stevearc/conform.nvim',
+      {
+        'SmiteshP/nvim-navic',
+        opts = function()
+          return {
+            separator = ' ',
+            highlight = true,
+            depth_limit = 5,
+            icons = rwxmad.defaults.icons.kinds,
+            lazy_update_context = true,
+          }
+        end,
+      },
     },
     config = function()
       local lsp = rwxmad.util.lsp
+      local navic = require('nvim-navic')
 
       local capabilities = nil
 
@@ -42,6 +55,11 @@ return {
           })
         end)
       end
+
+      -- nvim-navic
+      lsp.on_supports_method('textDocument/documentSymbol', function(client, buffer)
+        navic.attach(client, buffer)
+      end)
 
       lsp.setup()
 
