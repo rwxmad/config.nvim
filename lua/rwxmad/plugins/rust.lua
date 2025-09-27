@@ -5,11 +5,22 @@ return {
     version = '^6',
     lazy = false,
   },
+
   {
     'saecki/crates.nvim',
-    tag = 'stable',
-    config = function()
-      require('crates').setup()
-    end,
+    event = { 'BufRead Cargo.toml' },
+    opts = {
+      completion = {
+        crates = {
+          enabled = true,
+        },
+      },
+      lsp = {
+        enabled = true,
+        actions = true,
+        completion = true,
+        hover = true,
+      },
+    },
   },
 }

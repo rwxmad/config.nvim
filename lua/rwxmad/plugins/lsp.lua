@@ -78,7 +78,7 @@ return {
         'vue_ls',
         'lua_ls',
         'tailwindcss',
-        'rust_analyzer',
+        -- 'rust_analyzer',
         'marksman',
         'mdx_analyzer',
       }
