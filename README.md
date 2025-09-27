@@ -132,9 +132,9 @@ nvim
 
 - [html](https://github.com/hrsh7th/vscode-langservers-extracted)
 - [cssls](https://github.com/hrsh7th/vscode-langservers-extracted)
-- [ts_ls](https://github.com/typescript-language-server/typescript-language-server)
+- [vtsls](https://github.com/yioneko/vtsls)
 - [eslint](https://github.com/hrsh7th/vscode-langservers-extracted)
-- [volar](https://github.com/vuejs/language-tools/tree/master/packages/language-server)
+- [vue_ls](https://github.com/vuejs/language-tools)
 - [tailwindcss](https://github.com/tailwindlabs/tailwindcss-intellisense)
 - [rust_analyzer](https://github.com/rust-lang/rust-analyzer)
 - [jsonls](https://github.com/hrsh7th/vscode-langservers-extracted)
@@ -142,6 +142,7 @@ nvim
 - [pyright](https://github.com/microsoft/pyright)
 - [bashls](https://github.com/bash-lsp/bash-language-server)
 - [marksman](https://github.com/artempyanykh/marksman)
+- [mdx_analyzer](https://github.com/mdx-js/mdx-analyzer)
 
 ---
 
