@@ -135,7 +135,6 @@ nvim
 - [ts_ls](https://github.com/typescript-language-server/typescript-language-server)
 - [eslint](https://github.com/hrsh7th/vscode-langservers-extracted)
 - [volar](https://github.com/vuejs/language-tools/tree/master/packages/language-server)
-- [emmet_ls](https://github.com/aca/emmet-ls)
 - [tailwindcss](https://github.com/tailwindlabs/tailwindcss-intellisense)
 - [rust_analyzer](https://github.com/rust-lang/rust-analyzer)
 - [jsonls](https://github.com/hrsh7th/vscode-langservers-extracted)
