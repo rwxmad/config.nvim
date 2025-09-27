@@ -69,7 +69,6 @@ return {
       local servers = {
         'html',
         'cssls',
-        -- 'emmet_ls',
         -- disabled for now
         -- 'eslint',
         'jsonls',
