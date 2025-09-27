@@ -15,7 +15,7 @@ return {
             highlight = true,
             depth_limit = 5,
             icons = rwxmad.defaults.icons.kinds,
-            lazy_update_context = true,
+            lazy_update_context = false,
           }
         end,
       },
@@ -33,23 +33,21 @@ return {
       local inlay_hints_exclude = { 'vue' }
 
       -- inlay hints
-      if vim.fn.has('nvim-0.10') == 1 then
-        lsp.on_supports_method('textDocument/inlayHint', function(client, buffer)
-          if
-            vim.api.nvim_buf_is_valid(buffer)
-            and vim.bo[buffer].buftype == ''
-            and not vim.tbl_contains(inlay_hints_exclude, vim.bo[buffer].filetype)
-          then
-            lsp.toggle_inlay_hints(buffer, true)
-          end
-        end)
-      end
+      lsp.on_supports_method('textDocument/inlayHint', function(client, buffer)
+        if
+          vim.api.nvim_buf_is_valid(buffer)
+          and vim.bo[buffer].buftype == ''
+          and not vim.tbl_contains(inlay_hints_exclude, vim.bo[buffer].filetype)
+        then
+          lsp.toggle_inlay_hints(buffer, true)
+        end
+      end)
 
       -- code lens
       if vim.lsp.codelens then
         lsp.on_supports_method('textDocument/codeLens', function(client, buffer)
           vim.lsp.codelens.refresh()
-          vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'InsertLeave' }, {
+          vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave' }, {
             buffer = buffer,
             callback = vim.lsp.codelens.refresh,
           })
@@ -71,8 +69,9 @@ return {
       local servers = {
         'html',
         'cssls',
-        'emmet_ls',
-        'eslint',
+        -- 'emmet_ls',
+        -- disabled for now
+        -- 'eslint',
         'jsonls',
         'pyright',
         'bashls',
