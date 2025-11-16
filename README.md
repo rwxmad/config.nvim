@@ -125,6 +125,7 @@ nvim
 | [copilot.lua](https://github.com/zbirenbaum/copilot.lua)                                      | Fully featured & enhanced replacement for copilot.vim complete with API for interacting with Github Copilot                                       |
 | [CopilotChat.nvim](https://github.com/CopilotC-Nvim/CopilotChat.nvim)                         | Chat with GitHub Copilot in Neovim                                                                                                                |
 | [nvim-highlight-colors](https://github.com/brenoprata10/nvim-highlight-colors)                | Highlight colors for neovim                                                                                                                       |
+| [harpoon](https://github.com/ThePrimeagen/harpoon?tab=readme-ov-file)                         | Getting you where you want with the fewest keystrokes                                                                                             |
 
 ---
 
