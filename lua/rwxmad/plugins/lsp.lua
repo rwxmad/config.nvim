@@ -69,8 +69,7 @@ return {
       local servers = {
         'html',
         'cssls',
-        -- disabled for now
-        -- 'eslint',
+        'eslint',
         'jsonls',
         'pyright',
         'bashls',
