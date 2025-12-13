@@ -33,17 +33,30 @@ return {
   -- vim.cmd.colorscheme('kanagawa-dragon')
   --   end,
   -- },
+  -- {
+  --   'neanias/everforest-nvim',
+  --   version = false,
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     local theme = require('everforest')
+  --     theme.setup({
+  --       transparent_background_level = 1,
+  --     })
+  --     theme.load()
+  --   end,
+  -- },
   {
-    'neanias/everforest-nvim',
-    version = false,
+    'AlexvZyl/nordic.nvim',
     lazy = false,
     priority = 1000,
-    config = function()
-      local theme = require('everforest')
-      theme.setup({
-        transparent_background_level = 1,
-      })
-      theme.load()
+    opts = {
+      transparent = {
+        bg = true,
+      },
+    },
+    config = function(_, opts)
+      require('nordic').load(opts)
     end,
   },
 }
