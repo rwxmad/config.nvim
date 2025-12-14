@@ -16,4 +16,5 @@ return {
       require('gitsigns').setup()
     end,
   },
+  { 'sindrets/diffview.nvim' },
 }
