@@ -82,7 +82,7 @@ return {
         'mdx_analyzer',
       }
 
-      local ensure_installed = {
+      local tools = {
         'stylua',
         'shfmt',
         'prettierd',
@@ -97,6 +97,8 @@ return {
         automatic_installation = true,
         automatic_enable = true,
       })
+
+      require('mason-tool-installer').setup({ ensure_installed = tools, automatic_enable = false })
 
       -- diagnostics
       vim.diagnostic.config({
@@ -115,9 +117,6 @@ return {
           prefix = '',
         },
       })
-
-      vim.list_extend(ensure_installed, servers)
-      require('mason-tool-installer').setup({ ensure_installed = ensure_installed, automatic_enable = false })
 
       -- Autoformatting Setup
       require('conform').setup({
