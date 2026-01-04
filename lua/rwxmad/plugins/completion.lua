@@ -41,7 +41,7 @@ return {
           },
         },
         ghost_text = {
-          enabled = vim.g.ai_cmp,
+          enabled = true,
         },
       },
       -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
@@ -58,6 +58,7 @@ return {
       -- See :h blink-cmp-config-keymap for defining your own keymap
       keymap = {
         preset = 'enter',
+        ['<Tab>'] = { 'select_and_accept', 'fallback' },
         ['<Up>'] = { 'select_prev', 'fallback' },
         ['<Down>'] = { 'select_next', 'fallback' },
 
@@ -107,24 +108,7 @@ return {
     opts_extend = { 'sources.default' },
     config = function(_, opts)
       local icons = rwxmad.defaults.icons
-      local completion = rwxmad.util.cmp
       require('rwxmad.util.snippets')
-
-      -- add ai_accept to <Tab> key
-      if not opts.keymap['<Tab>'] then
-        if opts.keymap.preset == 'super-tab' then -- super-tab
-          opts.keymap['<Tab>'] = {
-            require('blink.cmp.keymap.presets')['super-tab']['<Tab>'][1],
-            completion.map({ 'snippet_forward', 'ai_accept' }),
-            'fallback',
-          }
-        else -- other presets
-          opts.keymap['<Tab>'] = {
-            completion.map({ 'snippet_forward', 'ai_accept' }),
-            'fallback',
-          }
-        end
-      end
 
       -- check if we need to override symbol kinds
       for _, provider in pairs(opts.sources.providers or {}) do
