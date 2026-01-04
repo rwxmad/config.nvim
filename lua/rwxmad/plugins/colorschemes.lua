@@ -12,25 +12,9 @@ return {
   --       end,
   --     }
   --   end,
-  -- config = function(_, opts)
-  -- require('solarized-osaka').setup(opts)
-  -- vim.cmd.colorscheme('solarized-osaka')
-  -- end,
-  -- },
-
-  -- {
-  --   'rebelot/kanagawa.nvim',
-  --   lazy = false,
-  --   opts = {},
-  --   config = function()
-  -- require('kanagawa').setup({
-  --   theme = 'dragon',
-  --   transparent = true,
-  --   colors = {
-  --     theme = { all = { ui = { bg_gutter = 'none' } } },
-  --   },
-  -- })
-  -- vim.cmd.colorscheme('kanagawa-dragon')
+  --   config = function(_, opts)
+  --     require('solarized-osaka').setup(opts)
+  --     vim.cmd.colorscheme('solarized-osaka')
   --   end,
   -- },
   -- {
@@ -38,25 +22,49 @@ return {
   --   version = false,
   --   lazy = false,
   --   priority = 1000,
-  --   config = function()
+  --   opts = {
+  --     transparent_background_level = 1,
+  --   },
+  --   config = function(_, opts)
   --     local theme = require('everforest')
-  --     theme.setup({
-  --       transparent_background_level = 1,
-  --     })
+  --     theme.setup(opts)
   --     theme.load()
   --   end,
   -- },
+  -- {
+  --   'EdenEast/nightfox.nvim',
+  --   opts = {
+  --     options = {
+  --       transparent = true,
+  --     },
+  --   },
+  --   config = function(_, opts)
+  --     require('nightfox').setup(opts)
+  --     vim.cmd([[colorscheme nordfox]])
+  --   end,
+  -- },
+  -- {
+  --   'ellisonleao/gruvbox.nvim',
+  --   config = function(_, opts)
+  --     require('gruvbox').setup(opts)
+  --     vim.cmd([[colorscheme gruvbox]])
+  --   end,
+  -- },
   {
-    'AlexvZyl/nordic.nvim',
+    'folke/tokyonight.nvim',
     lazy = false,
     priority = 1000,
     opts = {
-      transparent = {
-        bg = true,
+      style = 'night',
+      transparent = true,
+      styles = {
+        sidebars = 'transparent',
+        floats = 'transparent',
       },
     },
     config = function(_, opts)
-      require('nordic').load(opts)
+      require('tokyonight').setup(opts)
+      vim.cmd([[colorscheme tokyonight]])
     end,
   },
 }
