@@ -15,11 +15,10 @@ return {
       {
         '<leader>rn',
         function()
-          return ':IncRename '
+          return ':IncRename ' .. vim.fn.expand('<cword>')
         end,
         mode = 'n',
         noremap = true,
-        silent = true,
         expr = true,
       },
     },
