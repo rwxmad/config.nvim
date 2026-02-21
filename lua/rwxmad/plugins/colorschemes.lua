@@ -43,28 +43,31 @@ return {
   --     vim.cmd([[colorscheme nordfox]])
   --   end,
   -- },
-  -- {
-  --   'ellisonleao/gruvbox.nvim',
-  --   config = function(_, opts)
-  --     require('gruvbox').setup(opts)
-  --     vim.cmd([[colorscheme gruvbox]])
-  --   end,
-  -- },
   {
-    'folke/tokyonight.nvim',
-    lazy = false,
-    priority = 1000,
+    'ellisonleao/gruvbox.nvim',
     opts = {
-      style = 'night',
-      transparent = true,
-      styles = {
-        sidebars = 'transparent',
-        floats = 'transparent',
-      },
+      transparent_mode = true,
     },
     config = function(_, opts)
-      require('tokyonight').setup(opts)
-      vim.cmd([[colorscheme tokyonight]])
+      require('gruvbox').setup(opts)
+      vim.cmd([[colorscheme gruvbox]])
     end,
   },
+  -- {
+  --   'folke/tokyonight.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {
+  --     style = 'night',
+  --     transparent = true,
+  --     styles = {
+  --       sidebars = 'transparent',
+  --       floats = 'transparent',
+  --     },
+  --   },
+  --   config = function(_, opts)
+  --     require('tokyonight').setup(opts)
+  --     vim.cmd([[colorscheme tokyonight]])
+  --   end,
+  -- },
 }
