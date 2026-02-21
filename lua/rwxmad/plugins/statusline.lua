@@ -24,7 +24,7 @@ return {
       return {
         options = {
           icons_enabled = true,
-          theme = 'tokyonight',
+          theme = 'gruvbox',
           section_separators = '',
           component_separators = '',
           disabled_filetypes = {},
