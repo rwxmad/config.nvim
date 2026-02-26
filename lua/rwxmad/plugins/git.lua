@@ -11,6 +11,8 @@ return {
       { '<leader>hd', '<cmd>Gitsigns diffthis<CR>', desc = 'Diff hunk' },
       { '<leader>hR', '<cmd>Gitsigns reset_buffer<CR>', desc = 'Reset buffer' },
       { '<leader>hS', '<cmd>Gitsigns stage_buffer<CR>', desc = 'Stage buffer' },
+      { ']h', '<cmd>Gitsigns next_hunk<CR>', desc = 'Next hunk' },
+      { '[h', '<cmd>Gitsigns prev_hunk<CR>', desc = 'Prev hunk' },
     },
     config = function()
       require('gitsigns').setup()
