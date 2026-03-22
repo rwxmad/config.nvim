@@ -11,8 +11,6 @@ return {
     -- If you use nix, you can build from source using latest nightly rust with:
     -- build = 'nix run .#build-plugin',
 
-    event = 'InsertEnter',
-
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
