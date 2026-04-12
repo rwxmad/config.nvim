@@ -87,6 +87,7 @@ return {
         'shfmt',
         'prettierd',
         'prettier',
+        'eslint_d',
       }
 
       require('mason').setup()
@@ -122,12 +123,12 @@ return {
       require('conform').setup({
         formatters_by_ft = {
           lua = { 'stylua' },
-          javascript = { 'prettierd', 'prettier' },
-          javascriptreact = { 'prettierd', 'prettier' },
-          typescript = { 'prettierd', 'prettier' },
-          typescriptreact = { 'prettierd', 'prettier' },
+          javascript = { 'prettierd', 'prettier', 'eslint_d' },
+          javascriptreact = { 'prettierd', 'prettier', 'eslint_d' },
+          typescript = { 'prettierd', 'prettier', 'eslint_d' },
+          typescriptreact = { 'prettierd', 'prettier', 'eslint_d' },
           css = { 'stylelint', 'prettierd', 'prettier' },
-          vue = { 'prettierd', 'prettier' },
+          vue = { 'prettierd', 'prettier', 'eslint_d' },
           python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
           rust = { 'rustfmt' },
           markdown = { 'prettierd', 'prettier' },
