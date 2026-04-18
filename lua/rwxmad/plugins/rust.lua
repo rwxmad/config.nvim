@@ -2,7 +2,7 @@ return {
   -- if enabled -> disable rust_analyzer in lsp config
   {
     'mrcjkb/rustaceanvim',
-    version = '^8',
+    version = '^9',
     lazy = false,
   },
 
