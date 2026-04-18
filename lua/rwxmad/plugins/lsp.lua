@@ -44,15 +44,11 @@ return {
       end)
 
       -- code lens
-      if vim.lsp.codelens then
-        lsp.on_supports_method('textDocument/codeLens', function(client, buffer)
-          vim.lsp.codelens.refresh()
-          vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave' }, {
-            buffer = buffer,
-            callback = vim.lsp.codelens.refresh,
-          })
-        end)
-      end
+      -- if vim.lsp.codelens then
+      --   lsp.on_supports_method('textDocument/codeLens', function(client, buffer)
+      --     vim.lsp.codelens.enable(true, { bufnr = buffer })
+      --   end)
+      -- end
 
       -- nvim-navic
       lsp.on_supports_method('textDocument/documentSymbol', function(client, buffer)
@@ -95,8 +91,9 @@ return {
       -- mason-lspconfig
       require('mason-lspconfig').setup({
         ensure_installed = servers,
-        automatic_installation = true,
-        automatic_enable = true,
+        automatic_enable = {
+          exclude = { 'rust_analyzer' },
+        },
       })
 
       require('mason-tool-installer').setup({ ensure_installed = tools, automatic_enable = false })
