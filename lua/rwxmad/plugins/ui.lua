@@ -22,6 +22,10 @@ return {
         inc_rename = true,
         lsp_doc_border = true,
       },
+      popupmenu = {
+        enabled = true,
+        backend = 'cmp',
+      },
     },
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
